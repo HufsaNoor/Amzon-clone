@@ -72,7 +72,7 @@ const HomePage = () => {
         height={1000} 
         alt="banner" 
       />
-      <div className="w-[80%] mx-auto grid grid-cols-4 gap-2 relative -top-64">
+      <div className="w-[90%] mx-auto grid grid-cols-4 gap-2 relative -top-64">
         {Array.isArray(menProduct) && menProduct.map((product) => (
           <div href={`/Products/${product.id}`} key={product.id}>
             <CategoryWiseProduct product={product} />
