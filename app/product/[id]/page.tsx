@@ -5,16 +5,17 @@ import { useSupabase } from '@/lib/supabase/hooks/useSupabase';
 import { useParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 
-const Page = () => {
+const ProductPage = () => {
    const {id} = useParams();
    const {singleProduct, getSingleProduct} = useSupabase();
    useEffect (()=>{
     getSingleProduct(Number(id));
    // eslint-disable-next-line react-hooks/exhaustive-deps
-   },[])
+   },[id, getSingleProduct])
 
   return (
     <div>
+      
       
         <SingleProduct singleProduct={singleProduct}/>
      
@@ -23,4 +24,4 @@ const Page = () => {
   )
 } 
 
-export default Page
+export default ProductPage

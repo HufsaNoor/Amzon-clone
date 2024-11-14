@@ -40,6 +40,15 @@
 // // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 // export type AppDispatch = AppStore['dispatch']
 
+
+
+
+
+
+
+
+
+
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './cartSlice';
 import {
@@ -54,19 +63,38 @@ import {
 } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 
+
+
+
 const createNoopStorage = () => {
   return {
-    getItem(_key) {
+    getItem() {
       return Promise.resolve(null);
     },
-    setItem(_key, value) {
-      return Promise.resolve(value);
+    setItem() {
+      return Promise.resolve();
     },
-    removeItem(_key) {
+    removeItem() {
       return Promise.resolve();
     },
   };
 };
+
+
+// const createNoopStorage = () => {
+//   return {
+    
+//     getItem(_key) {
+//       return Promise.resolve(null);
+//     },
+//     setItem(_key, _value) {
+//       return Promise.resolve(_value);
+//     },
+//     removeItem(_key) {
+//       return Promise.resolve();
+//     },
+//   };
+// };
 
 // Use localStorage on the client and noop storage on the server
 const storage = typeof window !== 'undefined' ? createWebStorage('local') : createNoopStorage();

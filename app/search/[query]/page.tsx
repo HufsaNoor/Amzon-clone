@@ -30,7 +30,7 @@ import { useSupabase } from '@/lib/supabase/hooks/useSupabase'
 import { useParams } from 'next/navigation'
 import React, { useEffect } from 'react'
 
-const Page = () => {
+const SearchPage = () => {
     const params = useParams();
     const query = params?.query; // Ensure `query` is safely accessed
     const { filterData, getFilteredData } = useSupabase();
@@ -48,5 +48,5 @@ const Page = () => {
     )
 }
 
-export default Page;
+export default SearchPage;
 
